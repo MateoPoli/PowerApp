@@ -13,8 +13,7 @@ class SquatForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_squat_form)
-        val textHeightField = findViewById<EditText>(R.id.textHeightField)
-        val textWeightField = findViewById<EditText>(R.id.textWeightField)
+        val textThighSizeField = findViewById<EditText>(R.id.textThighSizeField)
         val nextBtn = findViewById<Button>(R.id.nextBtn)
         nextBtn.isEnabled = false
 
@@ -23,19 +22,16 @@ class SquatForm : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(editable: Editable?) {
                 // Verificar si ambos campos de entrada tienen valores válidos
-                val height = textHeightField.text.toString()
-                val weight = textWeightField.text.toString()
+                val thighSize = textThighSizeField.text.toString()
                 // Habilitar o deshabilitar el botón según las condiciones
-                nextBtn.isEnabled = height.isNotEmpty() && weight.isNotEmpty()
+                nextBtn.isEnabled = thighSize.isNotEmpty()
             }
         }
 
-        textHeightField.addTextChangedListener(watcher)
-        textWeightField.addTextChangedListener(watcher)
+        textThighSizeField.addTextChangedListener(watcher)
 
         nextBtn.setOnClickListener {
-            DataHelper.personHeight = textHeightField.text.toString().toDoubleOrNull() ?: 0.0
-            DataHelper.barbellWeight = textWeightField.text.toString().toDoubleOrNull() ?: 0.0
+            DataHelper.thighSize = textThighSizeField.text.toString().toDoubleOrNull() ?: 0.0
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

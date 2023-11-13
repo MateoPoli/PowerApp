@@ -18,11 +18,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/iconTextLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_squat"
+            android:layout_gravity="center"
+            android:contentDescription="Icon" />
+
+        <TextView
+            android:layout_width="266dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:text="Velocity-Based Training Device For Squat"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textHeightInputLayout"
+        android:id="@+id/textThighSizeInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/iconTextLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="16dp"
@@ -34,32 +62,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textHeightField"
+            android:id="@+id/textThighSizeField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textWeightInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textHeightInputLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:hint="@string/txt_hint_weight"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@color/mp_color_error"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textWeightField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -67,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_next_btn"
-        app:layout_constraintTop_toBottomOf="@+id/textWeightInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textThighSizeInputLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="16dp"
@@ -76,4 +83,4 @@
 
 
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

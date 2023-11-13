@@ -25,8 +25,9 @@ class SquatEvaluator : AppCompatActivity() {
         setContentView(R.layout.squat_evaluator)
 
         var sequenceResults : MutableList<List<String>> =
-            mutableListOf(listOf("Rep", "Distance", "Velocity"))
+            mutableListOf(listOf("Rep", "Distance", "Time", "Velocity"))
         var landmarkResults = DataHelper.lankMarksList
+        var thighSize = DataHelper.thighSize / 100
         var inferenceResults = DataHelper.infTime
         if (landmarkResults.isEmpty()){
             createTable(sequenceResults)
@@ -62,10 +63,10 @@ class SquatEvaluator : AppCompatActivity() {
                     timeSquat += inferenceResults.get(index)
                     if (knee_angle >= 170){
                         var segTimesquat = timeSquat.toFloat()/1000.0
-                        var squatDistance = calculateDistance(DataHelper.personHeight, lastAngle)
+                        var squatDistance = calculateDistance(thighSize, lastAngle)
                         var velocity = CalVelocity(squatDistance, segTimesquat)
                         var result: List<String> =
-                            listOf("${scuatCounter}", "${String.format("%.2f", Mdistance)}", "${String.format("%.2f", velocity)}")
+                            listOf("${scuatCounter}", "${String.format("%.2f", squatDistance)}", "${String.format("%.2f", segTimesquat)}", "${String.format("%.2f", velocity)}")
                         sequenceResults.add(result)
                         squatStage = "up"
                     }
@@ -107,7 +108,7 @@ class SquatEvaluator : AppCompatActivity() {
         )
         tableLayout.setBackgroundColor(Color.WHITE)
         // Ancho fijo para las columnas (en píxeles)
-        val columnWidths = intArrayOf(300, 300, 300)
+        val columnWidths = intArrayOf(200, 250, 250, 250)
         for (i in data.indices) {
             val rowData = data[i]
             val tableRow = TableRow(this)
@@ -134,8 +135,7 @@ class SquatEvaluator : AppCompatActivity() {
     }
 
     fun onCloseButtonClick(view: View) {
-        DataHelper.personHeight = 0.0
-        DataHelper.barbellWeight = 0.0
+        DataHelper.thighSize = 0.0
         DataHelper.lankMarksList = mutableListOf()
         DataHelper.infTime = mutableListOf()
         val intent = Intent(this, SquatForm::class.java)
