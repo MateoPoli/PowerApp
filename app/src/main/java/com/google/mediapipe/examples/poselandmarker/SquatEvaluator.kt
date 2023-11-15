@@ -108,7 +108,7 @@ class SquatEvaluator : AppCompatActivity() {
         )
         tableLayout.setBackgroundColor(Color.WHITE)
         // Ancho fijo para las columnas (en píxeles)
-        val columnWidths = intArrayOf(200, 250, 250, 250)
+        val columnWidths = intArrayOf(200, 280, 250, 250)
         for (i in data.indices) {
             val rowData = data[i]
             val tableRow = TableRow(this)
