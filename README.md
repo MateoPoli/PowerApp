@@ -1,15 +1,27 @@
-# MediaPipe Tasks Pose Landmark Detection Android Demo
+<p align="center">
+  <img src="https://i.imgur.com/J632xR0.png" width="100" height="100">
+</p>
+
+## Prototype of an Android application employing computer vision and artificial intelligence techniques based on human pose detection for quantifying speed in the concentric phase of a squat
+
+### Abstract
+In this project, a prototype Android application was designed that uses computer vision and artificial intelligence techniques to detect human pose and measure velocity during the concentric phase of the squat. The methodology included a review of the state of the art, a comparative study to select tools (MediaPipe was chosen for its features), the development of the application and experimentation in a gym with a test subject. The results of an analog speed measurement device (Encoder) were compared with those of the prototype, obtaining a Mean Squared Error for speed of 0.34295 demonstrating promising speed calculation results achieved by the prototype, implemented through artificial intelligence techniques and deep learning.
+
+![PowerApp](https://github.com/MateoPoli/PowerApp/assets/70857130/d14a2bb9-2d62-4f91-bcc4-db664b6dc819)
+
+### User Pineline
+The user enters the application prototype and, through an intuitive interface, has the option to input the reference measurement (measurement of the femur) for camera calibration and subsequently initiate the pose analysis. The application activates the device's camera, allowing the user to adjust model parameters through an expandable menu. In this interface, frames are captured through video streaming. Applying computer vision and artificial intelligence techniques, the application detects human pose in each frame, analyzing joints and displaying the skeletal structure on the camera interface. When the user finishes the detection, the detected poses throughout the video are processed, and the results are presented in a new interface through a responsive table.
 
 ### Overview
+Human pose estimation from video plays a critical role in various applications such as quantifying physical exercises, sign language recognition, and full-body gesture control. For example, it can form the basis for yoga, dance, and fitness applications. It can also enable the overlay of digital content and information on top of the physical world in augmented reality.
 
-This is a camera app that can detects landmarks on a person either from continuous camera frames seen by your device's back camera, an image, or a video from the device's gallery using a custom **task** file.
+### ML Pipeline
+The solution utilizes a two-step detector-tracker ML pipeline. Using a detector, the pipeline first locates the person/pose region-of-interest (ROI) within the frame. The tracker subsequently predicts the pose landmarks and segmentation mask within the ROI using the ROI-cropped frame as input. Note that for video use cases the detector is invoked only as needed, i.e., for the very first frame and when the tracker could no longer identify body pose presence in the previous frame. For other frames the pipeline simply derives the ROI from the previous frame’s pose landmarks.
 
-The task file is downloaded by a Gradle script when you build and run the app. You don't need to do any additional steps to download task files into the project explicitly unless you wish to use your own landmark detection task. If you do use your own task file, place it into the app's *assets* directory.
-
-This application should be run on a physical Android device to take advantage of the camera.
-
-![Pose Landmarker Demo](pose_landmarker.png?raw=true "Pose Landmarker Demo")
-[Public domain video from Lance Foss](https://www.youtube.com/watch?v=KALIKOd1pbA)
+<p align="center">
+  <img src="https://1.bp.blogspot.com/-J66lTDBjlgw/XzVwzgeQJ7I/AAAAAAAAGYM/WBIhbOqzi4ICUswEOHv8r7ItJIOJgL9iwCLcBGAsYHQ/s411/image11.jpg" width="450" height="200">
+  <img src="https://1.bp.blogspot.com/-XxKesnBALGM/XzVxSKZNWZI/AAAAAAAAGYc/WOt31icjp_YyjMxz06RSEwTi9K3qviFxwCLcBGAsYHQ/s550/image9.jpg" width="450" height="200">
+</p>
 
 ## Build the demo using Android Studio
 
