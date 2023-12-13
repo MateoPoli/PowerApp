@@ -12,6 +12,8 @@ In this project, a prototype Android application was designed that uses computer
 ### User Pineline
 The user enters the application prototype and, through an intuitive interface, has the option to input the reference measurement (measurement of the femur) for camera calibration and subsequently initiate the pose analysis. The application activates the device's camera, allowing the user to adjust model parameters through an expandable menu. In this interface, frames are captured through video streaming. Applying computer vision and artificial intelligence techniques, the application detects human pose in each frame, analyzing joints and displaying the skeletal structure on the camera interface. When the user finishes the detection, the detected poses throughout the video are processed, and the results are presented in a new interface through a responsive table.
 
+https://github.com/MateoPoli/PowerApp/assets/70857130/71033753-c277-4593-b2c8-342b00975774
+
 ### Overview
 Human pose estimation from video plays a critical role in various applications such as quantifying physical exercises, sign language recognition, and full-body gesture control. For example, it can form the basis for yoga, dance, and fitness applications. It can also enable the overlay of digital content and information on top of the physical world in augmented reality.
 
